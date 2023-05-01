@@ -4,6 +4,7 @@ import { Link } from 'react-router-dom';
 
 const Header = () => {
     const user = ''
+    const displayName = 'MD ZAMAN'
     return (
         <div className='header-wrap'>
             <div className="container mx-auto">
@@ -16,7 +17,7 @@ const Header = () => {
                             <li><Link to='/'>Home</Link></li>
                             <li><Link to='/blog'>Blog</Link></li>
                             {user ?
-                                <li><Link><img src="https://img.icons8.com/?size=512&id=22396&format=png" className='w-8 h-8' alt="" /></Link></li>
+                                <li><Link className="tooltip tooltip-bottom" data-tip={displayName || ''}><img src="https://img.icons8.com/?size=512&id=22396&format=png" className='w-8 h-8' alt="" /></Link></li>
                                 :
                                 <li className='items-center'><Link to='/login' className='bg-yellow-600 text-white py-0 h-2/3 hover:bg-yellow-500'>Login</Link></li>
                             }
