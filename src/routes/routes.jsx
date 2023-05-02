@@ -7,6 +7,8 @@ import Blog from "../components/Blog/Blog";
 import ChefRecipes from "../components/ChefRecipes/ChefRecipes";
 import ErrorPage from "../components/ErrorPage/ErrorPage";
 
+export const dataServerUrl = 'http://localhost:5000';
+
 const router = createBrowserRouter([
     {
         path: '/',
@@ -15,7 +17,8 @@ const router = createBrowserRouter([
         children: [
             {
                 index: true,
-                element: <Home />
+                element: <Home />,
+                loader: () => fetch(`${dataServerUrl}/chefs`)
             }, {
                 path: 'login',
                 element: <Login />
