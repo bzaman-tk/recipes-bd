@@ -1,7 +1,7 @@
 import React from 'react';
 import './Header.css'
 import auth from '../../util/firebase.config';
-import { Link, useLocation, useParams } from 'react-router-dom';
+import { Link, NavLink, useLocation, useParams } from 'react-router-dom';
 
 const Header = () => {
     const user = ''
@@ -14,9 +14,31 @@ const Header = () => {
                         <Link to='/' className="font-bold normal-case text-2xl">Recipes <span className="text-green-700">B<span className="text-red-700">D</span></span></Link>
                     </div>
                     <div className="flex-none">
-                        <ul className="menu menu-horizontal px-1">
-                            <li><Link to='/'>Home</Link></li>
-                            <li><Link to='/blog'>Blog</Link></li>
+                        <ul className="menu menu-horizontal px-1 gap-4">
+                            <li><NavLink
+                                to='/'
+                                className={({ isActive, isPending }) =>
+                                    isActive
+                                        ? "border-b-2 bg-transparent !rounded-none"
+                                        : isPending
+                                            ? "pending"
+                                            : ""
+                                }
+                            >
+                                Home
+                            </NavLink></li>
+                            <li><NavLink
+                                to='/blog'
+                                className={({ isActive, isPending }) =>
+                                    isActive
+                                        ? "border-b-2 bg-transparent !rounded-none"
+                                        : isPending
+                                            ? "pending"
+                                            : ""
+                                }
+                            >
+                                Blog
+                            </NavLink></li>
                             {user ?
                                 <li><Link className="tooltip tooltip-bottom" data-tip={displayName || ''}><img src="https://img.icons8.com/?size=512&id=22396&format=png" className='w-8 h-8' alt="" /></Link></li>
                                 :
