@@ -1,5 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
+import { FaGithub, FaGithubAlt, FaGoogle } from 'react-icons/fa'
 
 const Login = () => {
     return (
@@ -20,6 +21,10 @@ const Login = () => {
                         </div>
                         <button className="btn btn-outline mt-6 mx-auto block">Login</button>
                     </form>
+                    <div className="flex gap-3 justify-center mt-6 border-t-2 border-t-gray-700 text-center pt-3">
+                        <button className="btn btn-outline text-xs flex gap-3 items-center justify-center"><FaGoogle /> Login with Googel</button>
+                        <button className="btn btn-outline flex gap-3 items-center justify-center"><FaGithub /> Login with Github</button>
+                    </div>
                     <p className="mt-6 border-t-2 border-t-gray-700 text-center pt-3">
                         Don't have an Account? <Link className='text-blue-500' to='/register'>Register</Link>
                     </p>
