@@ -1,0 +1,12 @@
+.card.image-full.cus-image-full:before{
+    opacity: 0;
+}
+.card.image-full.cus-image-full:hover:before{
+    opacity: .8;
+}
+.card.image-full.cus-image-full .card-body{
+    visibility: hidden;
+}
+.card.image-full.cus-image-full:hover .card-body{
+    visibility: visible;
+}
