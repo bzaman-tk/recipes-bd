@@ -1,4 +1,5 @@
 import React from 'react';
+import './Header.css'
 import auth from '../../util/firebase.config';
 import { Link } from 'react-router-dom';
 
@@ -6,7 +7,7 @@ const Header = () => {
     const user = ''
     const displayName = 'MD ZAMAN'
     return (
-        <div className='header-wrap'>
+        <div className='header-wrap pt-6' style={{ backgroundImage: `url("https://daisyui.com/images/stock/photo-1507358522600-9f71e620c44e.jpg")` }}>
             <div className="container mx-auto">
                 <div className="navbar bg-base-100">
                     <div className="flex-1">
