@@ -11,6 +11,7 @@ const ChefRecipes = () => {
     // console.log(chefData.chef_name);
 
     useEffect(() => {
+        //this will update the page title 
         document.title = 'Recipes BD | Chef Recipes'
         fetch(`https://chef-server-one.vercel.app/chefs/${id}`)
             .then(res => res.json())
@@ -51,6 +52,7 @@ const ChefRecipes = () => {
                     </div>
                     <div className='flex flex-col justify-center gap-5'>
                         {
+                            //recipes for each chef
                             recipes.map(r => <RecipeSingle data={r} key={r.id} />)
                         }
                     </div>

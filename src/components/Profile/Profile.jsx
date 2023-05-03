@@ -18,7 +18,7 @@ const Profile = () => {
             <h1 className='font-bold text-xl'>Email: {user?.email}</h1>
             <br className="mt-9" />
             <Link onClick={() => logOut()}
-                className='rounded-lg py-2 px-5 bg-yellow-600 text-white py-0 h-2/3 hover:bg-yellow-500'
+                className='rounded-lg py-2 px-5 bg-yellow-600 text-white h-2/3 hover:bg-yellow-500'
             >
                 Logout</Link>
         </div>
