@@ -1,13 +1,18 @@
 import React, { useContext, useEffect, useState } from 'react';
-import { Link, useNavigate } from 'react-router-dom';
+import { Link, useLocation, useNavigate } from 'react-router-dom';
 import { FaGithub, FaGithubAlt, FaGoogle } from 'react-icons/fa'
 import { AuthContext } from '../../provider/AuthProvider';
 import { updateProfile } from 'firebase/auth';
 
 const Login = () => {
     const { logIn, googleLogin, githubLogin } = useContext(AuthContext)
+    const location = useLocation()
     const navigate = useNavigate()
     const [error, setError] = useState('')
+
+    const from = location.state?.from;
+    console.log(from);
+
     useEffect(() => {
         document.title = 'Recipes BD | Login'
     }, [])
@@ -32,7 +37,11 @@ const Login = () => {
         logIn(email, password)
             .then(result => {
                 //console.log(result.user);
-                navigate('/profile')
+                if (from) {
+                    navigate(from)
+                } else {
+                    navigate('/profile')
+                }
             })
             .catch(e => setError(e.message))
         //console.log(email, password);

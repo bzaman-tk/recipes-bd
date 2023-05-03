@@ -1,11 +1,17 @@
 import React, { useState } from 'react';
+import { toast } from 'react-hot-toast';
 import { FaHeart } from 'react-icons/fa'
 import { Rating } from 'react-simple-star-rating';
 
 const RecipeSingle = ({ data }) => {
     const [favorite, setFavorite] = useState(false);
     const { recipe_name, rating, ingredients, cooking_method, image } = data;
-
+    const handleFavorite = e => {
+        e.preventDefault()
+        e.target.classList.add('btn-disabled');
+        setFavorite(!favorite)
+        toast.success('Added to Favorite')
+    }
     return (
         <div className="single-card card lg:card-side  bg-gray-700 shadow-xl">
             <figure className='w-4/12'><img src={image} alt="" /></figure>
@@ -40,10 +46,14 @@ const RecipeSingle = ({ data }) => {
 
                         <span className="badge badge-accent badge-outline ml-2 border-yellow-500 !text-yellow-500"> {rating}</span>
                     </span>
-                    <span onClick={() => setFavorite(!favorite)} className='flex items-center gap-2'>
+                    <button onClick={handleFavorite} className="btn gap-2 !min-h-0 !h-6 !py-0">
+                        Favorite
+                        <FaHeart className={`cursor-pointer ${favorite && 'text-red-500'}`} />
+                    </button>
+                    {/* <span onClick={() => setFavorite(!favorite)} className='flex items-center gap-2'>
                         Favorite :
                         <FaHeart className={`cursor-pointer ${favorite && 'text-red-500'}`} />
-                    </span>
+                    </span> */}
                 </p>
             </div>
         </div>

@@ -3,12 +3,14 @@ import { AuthContext } from '../../provider/AuthProvider';
 import { Link } from 'react-router-dom';
 
 const Profile = () => {
-    const { user, logOut } = useContext(AuthContext)
+    const { user, logOut, lodding } = useContext(AuthContext)
 
     useEffect(() => {
         document.title = 'Recipes BD | Profile'
     }, [])
-
+    if (lodding) {
+        return 'loading';
+    }
     return (
         <div className='container mx-auto my-12 text-center'>
             <img className='w-14 h-14 mx-auto rounded-full p-1 border' src={user?.photoURL} alt="" />

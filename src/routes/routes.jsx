@@ -8,6 +8,7 @@ import ChefRecipes from "../components/ChefRecipes/ChefRecipes";
 import ErrorPage from "../components/ErrorPage/ErrorPage";
 import TestCompo from "../components/ChefRecipes/TestCompo";
 import Profile from "../components/Profile/Profile";
+import PriveteRoutes from "../privete/PriveteRoutes";
 
 const router = createBrowserRouter([
     {
@@ -30,10 +31,10 @@ const router = createBrowserRouter([
                 element: <Blog />
             }, {
                 path: 'profile',
-                element: <Profile />
+                element: <PriveteRoutes><Profile /></PriveteRoutes>
             }, {
                 path: 'chef-recipes/:id',
-                element: <ChefRecipes />,
+                element: <PriveteRoutes><ChefRecipes /></PriveteRoutes>,
                 loader: ({ params }) => fetch(`https://chef-server-bzaman-tk.vercel.app/chef-recipe/${params.id}`)
             }
         ]
