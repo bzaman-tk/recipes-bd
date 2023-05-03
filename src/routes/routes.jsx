@@ -7,6 +7,7 @@ import Blog from "../components/Blog/Blog";
 import ChefRecipes from "../components/ChefRecipes/ChefRecipes";
 import ErrorPage from "../components/ErrorPage/ErrorPage";
 import TestCompo from "../components/ChefRecipes/TestCompo";
+import Profile from "../components/Profile/Profile";
 
 const router = createBrowserRouter([
     {
@@ -27,6 +28,9 @@ const router = createBrowserRouter([
             }, {
                 path: 'blog',
                 element: <Blog />
+            }, {
+                path: 'profile',
+                element: <Profile />
             }, {
                 path: 'chef-recipes/:id',
                 element: <ChefRecipes />,

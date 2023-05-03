@@ -1,11 +1,11 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import './Header.css'
 import auth from '../../util/firebase.config';
 import { Link, NavLink, useLocation, useParams } from 'react-router-dom';
+import { AuthContext } from '../../provider/AuthProvider';
 
 const Header = () => {
-    const user = ''
-    const displayName = 'MD ZAMAN'
+    const { user } = useContext(AuthContext)
     return (
         <div className='header-wrap'>
             <div className="container mx-auto">
@@ -40,7 +40,13 @@ const Header = () => {
                                 Blog
                             </NavLink></li>
                             {user ?
-                                <li><Link className="tooltip tooltip-bottom" data-tip={displayName || ''}><img src="https://img.icons8.com/?size=512&id=22396&format=png" className='w-8 h-8' alt="" /></Link></li>
+                                <>
+                                    <li><Link to='/profile' className="tooltip tooltip-bottom" data-tip={user.displayName || ''}><img src="https://img.icons8.com/?size=512&id=22396&format=png" className='w-8 h-8' alt="" /></Link>
+                                    </li>
+                                    {/* <li className='items-center'>
+                                        <Link onClick={() => logOut()} className='bg-yellow-600 text-white py-0 h-2/3 hover:bg-yellow-500'>Logout</Link>
+                                    </li> */}
+                                </>
                                 :
                                 <li className='items-center'><Link to='/login' className='bg-yellow-600 text-white py-0 h-2/3 hover:bg-yellow-500'>Login</Link></li>
                             }
