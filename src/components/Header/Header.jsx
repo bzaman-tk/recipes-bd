@@ -8,8 +8,8 @@ const Header = () => {
     const { user } = useContext(AuthContext)
     return (
         <div className='header-wrap'>
-            <div className="container mx-auto">
-                <div className="navbar bg-base-100">
+            <div className="container mx-auto px-5 sm:px-0">
+                <div className="navbar bg-base-100 !flex-col gap-3 sm:gap-0 sm:!flex-row">
                     <div className="flex-1">
                         <Link to='/' className="font-bold normal-case text-2xl">Recipes <span className="text-green-700">B<span className="text-red-700">D</span></span></Link>
                     </div>

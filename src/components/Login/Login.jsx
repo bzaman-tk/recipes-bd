@@ -91,7 +91,7 @@ const Login = () => {
                     <p className="text-red-500 py-4">
                         {error}
                     </p>
-                    <div className="flex gap-3 justify-center mt-6 border-t-2 border-t-gray-700 text-center pt-3">
+                    <div className="flex flex-col sm:flex-row gap-3 justify-center mt-6 border-t-2 border-t-gray-700 text-center pt-3">
                         <button onClick={handleGoogle} className="btn btn-outline text-xs flex gap-3 items-center justify-center"><FaGoogle /> Login with Googel</button>
                         <button onClick={handleGithub} className="btn btn-outline flex gap-3 items-center justify-center"><FaGithub /> Login with Github</button>
                     </div>
