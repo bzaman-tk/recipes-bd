@@ -1,16 +1,49 @@
-import React, { useEffect } from 'react';
+import html2canvas from 'html2canvas';
+import jsPDF from 'jspdf';
+import React, { useEffect, useState } from 'react';
+import { FaDownload } from 'react-icons/fa'
 
 const Blog = () => {
+    const [loader, setLoader] = useState(false);
     useEffect(() => {
         document.title = 'Recipes BD | Blog'
     }, [])
+
+    const downloadPDF = () => {
+        const capture = document.querySelector('.blog');
+        setLoader(true);
+        html2canvas(capture).then((canvas) => {
+            const imgData = canvas.toDataURL('img/png');
+            const doc = new jsPDF('p', 'mm', 'a4');
+            const componentWidth = doc.internal.pageSize.getWidth();
+            const componentHeight = doc.internal.pageSize.getHeight();
+            doc.addImage(imgData, 'PNG', 0, 0, componentWidth, componentHeight);
+            setLoader(false);
+            doc.save('blogs.pdf');
+        })
+    }
     return (
         <div className='container mx-auto my-10'>
+            <div className='flex flex-row-reverse'>
+                <button
+                    className="btn btn-warning flex items-center gap-2"
+                    onClick={downloadPDF}
+                    disabled={!(loader === false)}
+                >
+                    {loader ? (
+                        <span>Downloading</span>
+                    ) : (
+                        <>PDF <FaDownload /></>
+                    )}
+
+                </button>
+            </div>
+
             <div className="section-headr text-center mb-9">
                 <h2 className="section-title text-4xl font-bold m-0 mb-4">Blog</h2>
                 <p className="text-lg m-0">This is our blog page abuout recent</p>
             </div>
-            <div className="mx-auto max-w-3xl px-8 py-4">
+            <div className="mx-auto max-w-3xl px-8 py-4 blog">
                 <div className="border-b border-gray-500 mb-5 py-3">
                     <h2 className='font-bold text-xl'>Tell us the differences between uncontrolled and controlled components</h2>
                     <p>
