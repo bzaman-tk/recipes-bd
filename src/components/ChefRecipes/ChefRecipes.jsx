@@ -1,6 +1,8 @@
 import React, { useEffect, useState } from 'react';
 import { useLoaderData, useParams } from 'react-router-dom';
 import RecipeSingle from './RecipeSingle';
+import LazyLoad from 'react-lazy-load';
+import { LazyLoadImage } from 'react-lazy-load-image-component';
 
 const ChefRecipes = () => {
     const [chefData, setChefData] = useState({});
@@ -19,7 +21,17 @@ const ChefRecipes = () => {
         <div className="">
             <div className="hero min-h-screen bg-base-200">
                 <div className="hero-content flex-col lg:flex-row w-3/4 gap-12">
-                    <img src={chefData.chef_picture} className="max-w-sm rounded-lg shadow-2xl" />
+                    <LazyLoadImage
+                        className="max-w-sm rounded-lg shadow-2xl"
+                        alt={''}
+                        // height={'518'}
+                        src={chefData.chef_picture} // use normal <img> attributes as props
+                        // width={'777'}
+                        threshold={100}
+                        delayTime={500}
+                    />
+                    {/* <img src={chefData.chef_picture} className="max-w-sm rounded-lg shadow-2xl" /> */}
+
                     <div className='w-3/4'>
                         <h1 className="text-5xl font-bold mb-6">Name : {chefData.chef_name}</h1>
                         <p className="m-0">Bio : {chefData.short_bio}</p>
@@ -44,7 +56,7 @@ const ChefRecipes = () => {
                     </div>
                 </div>
             </div>
-        </div>
+        </div >
     );
 };
 

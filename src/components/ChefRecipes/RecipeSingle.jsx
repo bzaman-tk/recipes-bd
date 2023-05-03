@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { toast } from 'react-hot-toast';
 import { FaHeart } from 'react-icons/fa'
+import LazyLoad from 'react-lazy-load';
 import { Rating } from 'react-simple-star-rating';
 
 const RecipeSingle = ({ data }) => {
@@ -14,7 +15,11 @@ const RecipeSingle = ({ data }) => {
     }
     return (
         <div className="single-card card lg:card-side  bg-gray-700 shadow-xl">
-            <figure className='w-4/12'><img src={image} alt="" /></figure>
+            <figure className='w-4/12'>
+
+                <img src={image} alt="" />
+
+            </figure>
             <div className="card-body w-11/12">
                 <h2 className="card-title text-amber-500">{recipe_name}</h2>
                 <div className='m-0 border-b pb-4 border-gray-500'>
@@ -56,7 +61,7 @@ const RecipeSingle = ({ data }) => {
                     </span> */}
                 </p>
             </div>
-        </div>
+        </div >
     );
 };
 

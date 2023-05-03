@@ -1,6 +1,7 @@
 import React from 'react';
 import './ExtraSectionOne.css'
 import image from '../../assets/hero_image.jpg'
+import LazyLoad from 'react-lazy-load';
 
 const ExtraSectionOne = () => {
     return (
@@ -13,7 +14,9 @@ const ExtraSectionOne = () => {
                 <div className="flex flex-col sm:flex-row justify-center gap-6">
                     <div className="card sm:w-1/3 bg-gray-700 shadow-xl image-full cus-image-full">
                         <figure>
+
                             <img src={image} alt="" />
+
                         </figure>
                         <div className="card-body text-center !flex flex-row items-center justify-center">
                             <div>
@@ -29,7 +32,9 @@ const ExtraSectionOne = () => {
                     </div>
                     <div className="card sm:w-1/3 bg-gray-700 shadow-xl image-full cus-image-full">
                         <figure>
+
                             <img src={image} alt="" />
+
                         </figure>
                         <div className="card-body text-center !flex flex-row items-center justify-center">
                             <div>
@@ -45,7 +50,7 @@ const ExtraSectionOne = () => {
                     </div>
                 </div>
             </div>
-        </div>
+        </div >
     );
 };
 
