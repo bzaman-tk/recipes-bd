@@ -6,7 +6,7 @@ const ChefCard = ({ data }) => {
     const { chef_name, chef_picture, id, likes, number_of_recipes, short_bio, years_of_experience } = data;
     // console.log(data);
     return (
-        <div className="card w-1/4 bg-gray-700 shadow-xl">
+        <div className="card w-full sm:w-1/4 bg-gray-700 shadow-xl">
             <figure className="px-4 pt-4">
                 <img src={chef_picture} alt="" className="rounded-xl" />
             </figure>
