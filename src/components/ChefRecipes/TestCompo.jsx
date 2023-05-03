@@ -1,12 +1,14 @@
 import React, { useEffect, useState } from 'react';
 import { useLoaderData, useParams } from 'react-router-dom';
+//import { dataServerUrl } from '../../routes/routes';
 import RecipeSingle from './RecipeSingle';
 
-const ChefRecipes = () => {
+const TestCompo = () => {
+
     const [chefData, setChefData] = useState({});
     const recipes = useLoaderData()
     const { id } = useParams()
-    // console.log(chefData.chef_name);
+    console.log(chefData.chef_name);
 
     useEffect(() => {
         fetch(`http://localhost:5000/chefs/${id}`)
@@ -16,18 +18,19 @@ const ChefRecipes = () => {
 
     return (
         <div className="">
-            <div className="hero min-h-screen bg-base-200">
+            hi
+            {/* <div className="hero min-h-screen bg-base-200">
                 <div className="hero-content flex-col lg:flex-row w-3/4 gap-12">
                     <img src="https://ibtbd.net/wp-content/uploads/2019/11/Chef-Moniruzzaman.jpg" className="max-w-sm rounded-lg shadow-2xl" />
                     <div className='w-3/4'>
-                        <h1 className="text-5xl font-bold mb-6">Name : {chefData.chef_name}</h1>
-                        <p className="m-0">Bio : {chefData.short_bio}</p>
-                        <p className="m-0 my-3">Likes:<span className="ml-2 badge badge-accent badge-outline"> {chefData.likes}</span></p>
-                        <p className="m-0">Number of Recipe:<span className="ml-2 badge badge-accent badge-outline"> {chefData.number_of_recipes}</span></p>
-                        <p className="m-0 my-3">Years of Experience:<span className="ml-2 badge badge-accent badge-outline"> {chefData.years_of_experience}</span></p>
+                        <h1 className="text-5xl font-bold mb-6">{chefData.chef_name}</h1>
+                        <p className="m-0">{chefData.short_bio}</p>
+                        <p className="m-0 my-6">Likes: {chefData.likes}</p>
+                        <p className="m-0">Number of Recipe: {chefData.number_of_recipes}</p>
+                        <p className="m-0">Years of Experience: {chefData.years_of_experience}</p>
                     </div>
                 </div>
-            </div>
+            </div> */}
             <div className="py-12">
                 <div className="container mx-auto">
                     <div className="container mx-auto">
@@ -36,9 +39,9 @@ const ChefRecipes = () => {
                             <p className="text-lg m-6">We have the best Chef's of bangladesh who provide native cusine</p>
                         </div>
                     </div>
-                    <div className='flex flex-col justify-center gap-5'>
+                    <div className='flex justify-center gap-12'>
                         {
-                            recipes.map(r => <RecipeSingle data={r} key={r.id} />)
+                            // recipes.map(r => <RecipeSingle data={r} key={r.id} />)
                         }
                     </div>
                 </div>
@@ -47,4 +50,4 @@ const ChefRecipes = () => {
     );
 };
 
-export default ChefRecipes;
+export default TestCompo;

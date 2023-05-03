@@ -6,8 +6,7 @@ import Register from "../components/Register/Register";
 import Blog from "../components/Blog/Blog";
 import ChefRecipes from "../components/ChefRecipes/ChefRecipes";
 import ErrorPage from "../components/ErrorPage/ErrorPage";
-
-export const dataServerUrl = 'http://localhost:5000';
+import TestCompo from "../components/ChefRecipes/TestCompo";
 
 const router = createBrowserRouter([
     {
@@ -18,7 +17,7 @@ const router = createBrowserRouter([
             {
                 index: true,
                 element: <Home />,
-                loader: () => fetch(`${dataServerUrl}/chefs`)
+                loader: () => fetch(`http://localhost:5000/chefs`)
             }, {
                 path: 'login',
                 element: <Login />
@@ -30,7 +29,8 @@ const router = createBrowserRouter([
                 element: <Blog />
             }, {
                 path: 'chef/recipes/:id',
-                element: <ChefRecipes />
+                element: <ChefRecipes />,
+                loader: ({ params }) => fetch(`http://localhost:5000/recipe/${params.id}`)
             }
         ]
 
