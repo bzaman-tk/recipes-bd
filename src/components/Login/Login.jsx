@@ -1,8 +1,12 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import { FaGithub, FaGithubAlt, FaGoogle } from 'react-icons/fa'
 
 const Login = () => {
+    useEffect(() => {
+        document.title = 'Recipes BD | Login'
+    }, [])
+
     return (
         <div className='login-wrap'>
             <div className="container mx-auto">

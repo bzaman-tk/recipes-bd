@@ -9,6 +9,7 @@ const ChefRecipes = () => {
     // console.log(chefData.chef_name);
 
     useEffect(() => {
+        document.title = 'Recipes BD | Chef Recipes'
         fetch(`https://chef-server-one.vercel.app/chefs/${id}`)
             .then(res => res.json())
             .then(data => setChefData(data))
