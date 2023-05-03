@@ -50,7 +50,11 @@ const Login = () => {
         googleLogin()
             .then(result => {
                 //console.log(result.user);
-                navigate('/profile')
+                if (from) {
+                    navigate(from)
+                } else {
+                    navigate('/profile')
+                }
             })
             .catch(e => setError(e.message))
     }
@@ -62,11 +66,19 @@ const Login = () => {
                     displayName: result.user?.reloadUserInfo?.screenName
                 }).then(() => {
                     console.log('// Profile updated!');
-                    navigate('/profile')
+                    if (from) {
+                        navigate(from)
+                    } else {
+                        navigate('/profile')
+                    }
                 }).catch((e) => {
                     setError(e.message)
                 });
-                navigate('/profile')
+                if (from) {
+                    navigate(from)
+                } else {
+                    navigate('/profile')
+                }
             })
             .catch(e => setError(e.message))
     }
