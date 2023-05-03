@@ -18,7 +18,7 @@ const ChefRecipes = () => {
         <div className="">
             <div className="hero min-h-screen bg-base-200">
                 <div className="hero-content flex-col lg:flex-row w-3/4 gap-12">
-                    <img src="https://ibtbd.net/wp-content/uploads/2019/11/Chef-Moniruzzaman.jpg" className="max-w-sm rounded-lg shadow-2xl" />
+                    <img src={chefData.chef_picture} className="max-w-sm rounded-lg shadow-2xl" />
                     <div className='w-3/4'>
                         <h1 className="text-5xl font-bold mb-6">Name : {chefData.chef_name}</h1>
                         <p className="m-0">Bio : {chefData.short_bio}</p>
