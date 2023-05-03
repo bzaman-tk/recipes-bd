@@ -6,13 +6,13 @@ const Footer = () => {
     return (
         <div className='footer-wrap bg-black py-9'>
             <div className="container mx-auto">
-                <div className="grid grid-cols-4 gap-4">
-                    <div>
+                <div className="grid sm:grid-cols-4 gap-4 px-5 sm:px-0">
+                    <div className='text-center sm:text-left'>
                         <Link to='/' className="font-bold normal-case text-2xl">Recipes <span className="text-green-700">B<span className="text-red-700">D</span></span></Link>
                         <p className="short-des mt-4 text-sm">"Recipes BD" is a vibrant Bangladeshi restaurant that brings the flavors and traditions of Bangladesh to your plate. </p>
-                        <p className="address mt-3 flex gap-2 items-center"><FaMapMarkerAlt /> Nabigonj, Hobigonj, Sylhet, Bangladesh</p>
-                        <p className="email-address my-2 flex gap-2 items-center"><FaEnvelope /> example@ex.com, example@ex.com</p>
-                        <p className="phone-no flex gap-2 items-center"><FaPhone /> +880 1234 4454, +880 1234 4454</p>
+                        <p className="justify-center sm:justify-start address mt-3 flex gap-2 items-center"><FaMapMarkerAlt /> Nabigonj, Hobigonj, Sylhet, Bangladesh</p>
+                        <p className="justify-center sm:justify-start email-address my-2 flex gap-2 items-center"><FaEnvelope /> example@ex.com, example@ex.com</p>
+                        <p className="justify-center sm:justify-start phone-no flex gap-2 items-center"><FaPhone /> +880 1234 4454, +880 1234 4454</p>
                     </div>
                     <div></div>
                     <div></div>

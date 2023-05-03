@@ -11,7 +11,7 @@ const Login = () => {
     const [error, setError] = useState('')
 
     const from = location.state?.from;
-    console.log(from);
+    // console.log(from);
 
     useEffect(() => {
         document.title = 'Recipes BD | Login'
