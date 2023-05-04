@@ -1,7 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import { useLoaderData, useParams } from 'react-router-dom';
 import RecipeSingle from './RecipeSingle';
-import LazyLoad from 'react-lazy-load';
 import { LazyLoadImage } from 'react-lazy-load-image-component';
 
 const ChefRecipes = () => {
@@ -9,7 +8,7 @@ const ChefRecipes = () => {
     const recipes = useLoaderData()
     const { id } = useParams()
     // console.log(chefData.chef_name);
-    if (recipes == "Failed to fetch") {
+    if (!recipes) {
         return (
             <div className="container w-72 mx-auto block my-16">
                 <button className="btn loading">Network issue, Please Reload</button>

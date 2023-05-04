@@ -25,7 +25,7 @@ const router = createBrowserRouter([
                         const data = await res.json();
                         return data;
                     } catch (e) {
-                        return e.message;
+                        return false;
                     }
                 }
             }, {
@@ -49,7 +49,7 @@ const router = createBrowserRouter([
                         const data = await res.json();
                         return data;
                     } catch (e) {
-                        return e.message;
+                        return false;
                     }
                 }
             }

@@ -7,7 +7,7 @@ import { useLoaderData } from 'react-router-dom';
 
 const Home = () => {
     const allChef = useLoaderData();
-    if (allChef == "Failed to fetch") {
+    if (!allChef) {
         return (
             <div className="container w-72 mx-auto block my-16">
                 <button className="btn loading">Network issue, Please Reload</button>
