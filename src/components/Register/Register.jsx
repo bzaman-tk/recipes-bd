@@ -71,7 +71,7 @@ const Register = () => {
                             </label>
                             <label className="input-group input-group-vertical ">
                                 <span className='!rounded-none'>Email</span>
-                                <input type="email" name='email' required={true} placeholder="info@site.com" className="input input-bordered !rounded-none" />
+                                <input type="email" name='email' required={true} placeholder="Your Email" className="input input-bordered !rounded-none" />
                             </label>
                             <label className="input-group input-group-vertical mt-6">
                                 <span className=' !rounded'>Password</span>
