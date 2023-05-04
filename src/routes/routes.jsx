@@ -14,12 +14,20 @@ const router = createBrowserRouter([
     {
         path: '/',
         element: <Layout />,
-        errorElement: <ErrorPage />,
+        //errorElement: <ErrorPage />,
         children: [
             {
                 index: true,
                 element: <Home />,
-                loader: () => fetch(`https://chef-server-one.vercel.app/chefs`)
+                loader: async () => {
+                    try {
+                        const res = await fetch(`https://chef-server-one.vercel.app/chefs`);
+                        const data = await res.json();
+                        return data;
+                    } catch (e) {
+                        return e.message;
+                    }
+                }
             }, {
                 path: 'login',
                 element: <Login />
@@ -35,7 +43,15 @@ const router = createBrowserRouter([
             }, {
                 path: 'chef-recipes/:id',
                 element: <PriveteRoutes><ChefRecipes /></PriveteRoutes>,
-                loader: ({ params }) => fetch(`https://chef-server-bzaman-tk.vercel.app/chef-recipe/${params.id}`)
+                loader: async ({ params }) => {
+                    try {
+                        const res = await fetch(`https://chef-server-bzaman-tk.vercel.app/chef-recipe/${params.id}`);
+                        const data = await res.json();
+                        return data;
+                    } catch (e) {
+                        return e.message;
+                    }
+                }
             }
         ]
 

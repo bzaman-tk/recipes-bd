@@ -2,9 +2,9 @@ import React from 'react';
 import { useLoaderData } from 'react-router-dom';
 import ChefCard from './ChefCard';
 
-const Chefs = () => {
-    const allChef = useLoaderData();
-    // console.log(allChef);
+const Chefs = ({ allChef }) => {
+    // const allChef = useLoaderData();
+    //console.log(allChef);
     return (
         <div className='chefs-wrap my-12'>
             <div className="container mx-auto">

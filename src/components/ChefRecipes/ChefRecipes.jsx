@@ -9,7 +9,13 @@ const ChefRecipes = () => {
     const recipes = useLoaderData()
     const { id } = useParams()
     // console.log(chefData.chef_name);
-
+    if (recipes == "Failed to fetch") {
+        return (
+            <div className="container w-72 mx-auto block my-16">
+                <button className="btn loading">Network issue, Please Reload</button>
+            </div>
+        )
+    }
     useEffect(() => {
         //this will update the page title 
         document.title = 'Recipes BD | Chef Recipes'

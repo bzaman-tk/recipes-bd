@@ -3,8 +3,18 @@ import Hero from './Hero';
 import Chefs from './chefs';
 import ExtraSectionOne from './ExtraSectionOne';
 import ExtraSectionTwo from './ExtraSectionTwo';
+import { useLoaderData } from 'react-router-dom';
 
 const Home = () => {
+    const allChef = useLoaderData();
+    if (allChef == "Failed to fetch") {
+        return (
+            <div className="container w-72 mx-auto block my-16">
+                <button className="btn loading">Network issue, Please Reload</button>
+            </div>
+
+        )
+    }
     //this will update the page title 
     useEffect(() => {
         document.title = 'Recipes BD'
@@ -13,7 +23,7 @@ const Home = () => {
         <div className='home-wrap'>
             <Hero />
             {/* Chefs Section */}
-            <Chefs />
+            <Chefs allChef={allChef} />
             {/* 2 Extra Section */}
             <ExtraSectionTwo />
             <ExtraSectionOne />
