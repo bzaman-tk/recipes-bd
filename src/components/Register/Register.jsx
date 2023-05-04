@@ -5,7 +5,7 @@ import { updateProfile } from 'firebase/auth';
 
 const Register = () => {
     const [error, setError] = useState('')
-    const { createUser } = useContext(AuthContext)
+    const { createUser, logOut } = useContext(AuthContext)
     const navigate = useNavigate()
     useEffect(() => {
         document.title = 'Recipes BD | Register'
@@ -47,7 +47,13 @@ const Register = () => {
                     displayName: name, photoURL: photo
                 }).then(() => {
                     console.log('// Profile updated!');
-                    navigate('/profile')
+                    logOut()
+                        .then(() => {
+                            navigate('/login')
+                        }).catch((e) => {
+                            setError(e.message)
+                        });
+
                 }).catch((e) => {
                     setError(e.message)
                 });
