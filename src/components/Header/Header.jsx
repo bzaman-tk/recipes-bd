@@ -41,7 +41,14 @@ const Header = () => {
                             </NavLink></li>
                             {user ?
                                 <>
-                                    <li><Link to='/profile' className="tooltip tooltip-bottom" data-tip={user.displayName || ''}><img src="https://img.icons8.com/?size=512&id=22396&format=png" className='w-8 h-8' alt="" /></Link>
+                                    <li>
+                                        <Link to="/profile"
+                                            className={user.displayName && "tooltip tooltip-bottom"}
+                                            data-tip={user.displayName || ''}
+                                        // {user ? 'data-tip=hi' : 'data-tip=hello'}
+                                        >
+                                            <img src="https://img.icons8.com/?size=512&id=22396&format=png" className='w-8 h-8' alt="" />
+                                        </Link>
                                     </li>
                                     {/* <li className='items-center'>
                                         <Link onClick={() => logOut()} className='bg-yellow-600 text-white py-0 h-2/3 hover:bg-yellow-500'>Logout</Link>
